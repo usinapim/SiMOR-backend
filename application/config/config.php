@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://sergiomontenegro.dyndns.org/proyectos/websc/web_service/restserver/';
+$config['base_url']	= 'http://179.43.125.144/simor_web_service/';
 
 /*
 |--------------------------------------------------------------------------
