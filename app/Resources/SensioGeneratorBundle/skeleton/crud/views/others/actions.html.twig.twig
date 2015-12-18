@@ -1,0 +1,12 @@
+
+
+
+                {%- for action in record_actions %}
+
+
+                        <a class="btn btn-default" href="{{ "{{ path('" ~ route_name_prefix ~ "_" ~ action ~ "', { 'id': entity."~ identifier ~" }) }}" }}"><i class="fa fa-{% if action == 'show' %}eye{% else %}edit{% endif %}"></i></a>
+
+
+                {%- endfor %}
+
+

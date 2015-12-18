@@ -1,0 +1,24 @@
+app_rios:
+    resource: "@AppBundle/Resources/config/routing/rio.yml"
+    prefix:   /rios
+
+app_medidas:
+    resource: "@AppBundle/Resources/config/routing/medida.yml"
+    prefix:   /medidas
+
+app_puertos:
+    resource: "@AppBundle/Resources/config/routing/puerto.yml"
+    prefix:   /puertos
+
+app_tips:
+    resource: "@AppBundle/Resources/config/routing/tip.yml"
+    prefix:   /tips
+
+app_default:
+    resource: "@AppBundle/Resources/config/routing/default.yml"
+    prefix:   /default
+
+app_homepage:
+    path:     /
+    defaults: { _controller: AppBundle:Default:index }
+

@@ -1,0 +1,20 @@
+app_tip:
+    resource: "@AppBundle/Controller/TipController.php"
+    type:     annotation
+
+app:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix:   /
+
+usuario:
+    resource: "@UsuariosBundle/Resources/config/routing.yml"
+    prefix:   /usuarios
+
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+rest :
+  type : rest
+  resource : "routing_rest.yml"
+  prefix : /api

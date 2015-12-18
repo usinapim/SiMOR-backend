@@ -1,0 +1,4 @@
+niveles :
+  type: rest
+  resource:     "AppBundle:NivelesRest"
+  name_prefix:  api_
