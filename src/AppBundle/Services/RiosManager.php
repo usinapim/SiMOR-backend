@@ -65,6 +65,11 @@ class RiosManager {
 						$em->persist( $puerto );
 						$em->flush();
 					}
+					$value['ult. registro'] = str_replace( ',', '.', $value['ult. registro'] );
+					$value['variacion']     = str_replace( ',', '.', $value['variacion'] );
+					$value['alerta']        = str_replace( ',', '.', $value['alerta'] );
+					$value['evacuacion']    = str_replace( ',', '.', $value['evacuacion'] );
+
 					$medida = new Medida();
 					$medida->setPuerto( $puerto );
 					$medida->setUltimoRegistro( $value['ult. registro'] );
