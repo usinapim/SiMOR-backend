@@ -4,12 +4,19 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\Groups;
+use JMS\Serializer\Annotation\VirtualProperty;
 
 /**
  * Tip
  *
  * @ORM\Table(name="tips")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TipRepository")
+ * @ExclusionPolicy("all")
  */
 class Tip
 {
@@ -26,6 +33,9 @@ class Tip
      * @var string
      *
      * @ORM\Column(name="descripcion", type="text")
+     *
+     * @SerializedName("descripcion")
+     * @Expose
      */
     private $descripcion;
 

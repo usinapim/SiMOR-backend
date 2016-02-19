@@ -2,3 +2,8 @@ niveles :
   type: rest
   resource:     "AppBundle:NivelesRest"
   name_prefix:  api_
+
+tips :
+  type: rest
+  resource:     "AppBundle:TipsRest"
+  name_prefix:  api_
