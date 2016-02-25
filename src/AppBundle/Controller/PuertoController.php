@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -77,7 +78,7 @@ class PuertoController extends Controller
             'attr' => array('class' => 'box-body')
         ));
 
-        $form->add('submit', 'submit', array(
+        $form->add('submit', SubmitType::class, array(
             'label' => 'Crear',
             'attr' => array('class' => 'btn btn-primary pull-right')
         ));
@@ -155,7 +156,7 @@ class PuertoController extends Controller
     */
     private function createEditForm(Puerto $entity)
     {
-        $form = $this->createForm(new PuertoType(), $entity, array(
+        $form = $this->createForm(PuertoType::class, $entity, array(
             'action' => $this->generateUrl('puertos_update', array('id' => $entity->getId())),
             'method' => 'PUT',
             'attr' => array('class' => 'box-body')
@@ -163,7 +164,7 @@ class PuertoController extends Controller
 
         $form->add(
             'submit',
-            'submit',
+            SubmitType::class,
             array(
                 'label' => 'Actualizar',
                 'attr' => array('class' => 'btn btn-primary pull-right'),
@@ -242,7 +243,7 @@ class PuertoController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('puertos_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', SubmitType::class, array('label' => 'Delete'))
             ->getForm()
         ;
     }

@@ -17,6 +17,8 @@ class PuertoType extends AbstractType
         $builder
             ->add('nombre')
             ->add('rio')
+            ->add('latitud')
+            ->add('longitud')
         ;
     }
     
@@ -33,7 +35,7 @@ class PuertoType extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'appbundle_puerto';
     }

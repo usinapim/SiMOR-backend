@@ -86,10 +86,31 @@ class Puerto {
 	 */
 	private $medidas;
 
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="latitud", type="string", length=255, nullable=true)
+	 *
+	 * @SerializedName("latitud")
+	 * @Expose
+	 */
+	private $latitud;
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="longitud", type="string", length=255, nullable=true)
+	 *
+	 * @SerializedName("longitud")
+	 * @Expose
+	 */
+	private $longitud;
+
+
 	public function __toString() {
 		return $this->nombre;
 	}
-
 
 
 	/**
@@ -107,6 +128,7 @@ class Puerto {
 	public function getMedidaUltimoRegistro() {
 		return $this->getMedidas()->last()->getUltimoRegistro();
 	}
+
 	/**
 	 * @SerializedName("variacion")
 	 * @VirtualProperty
@@ -114,6 +136,7 @@ class Puerto {
 	public function getMedidaVariacion() {
 		return $this->getMedidas()->last()->getVariacion();
 	}
+
 	/**
 	 * @SerializedName("alerta")
 	 * @VirtualProperty
@@ -121,6 +144,7 @@ class Puerto {
 	public function getMedidaAlerta() {
 		return $this->getMedidas()->last()->getAlerta();
 	}
+
 	/**
 	 * @SerializedName("evacuacion")
 	 * @VirtualProperty
@@ -128,6 +152,7 @@ class Puerto {
 	public function getMedidaEvacuacion() {
 		return $this->getMedidas()->last()->getEvacuacion();
 	}
+
 	/**
 	 * @SerializedName("estado")
 	 * @VirtualProperty
@@ -277,45 +302,90 @@ class Puerto {
 	public function getActualizadoPor() {
 		return $this->actualizadoPor;
 	}
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->medidas = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+
+	/**
+	 * Constructor
+	 */
+	public function __construct() {
+		$this->medidas = new \Doctrine\Common\Collections\ArrayCollection();
+	}
+
+	/**
+	 * Add medida
+	 *
+	 * @param \AppBundle\Entity\Medida $medida
+	 *
+	 * @return Puerto
+	 */
+	public function addMedida( \AppBundle\Entity\Medida $medida ) {
+		$this->medidas[] = $medida;
+
+		return $this;
+	}
+
+	/**
+	 * Remove medida
+	 *
+	 * @param \AppBundle\Entity\Medida $medida
+	 */
+	public function removeMedida( \AppBundle\Entity\Medida $medida ) {
+		$this->medidas->removeElement( $medida );
+	}
+
+	/**
+	 * Get medidas
+	 *
+	 * @return \Doctrine\Common\Collections\Collection
+	 */
+	public function getMedidas() {
+		return $this->medidas;
+	}
 
     /**
-     * Add medida
+     * Set latitud
      *
-     * @param \AppBundle\Entity\Medida $medida
+     * @param string $latitud
      *
      * @return Puerto
      */
-    public function addMedida(\AppBundle\Entity\Medida $medida)
+    public function setLatitud($latitud)
     {
-        $this->medidas[] = $medida;
+        $this->latitud = $latitud;
 
         return $this;
     }
 
     /**
-     * Remove medida
+     * Get latitud
      *
-     * @param \AppBundle\Entity\Medida $medida
+     * @return string
      */
-    public function removeMedida(\AppBundle\Entity\Medida $medida)
+    public function getLatitud()
     {
-        $this->medidas->removeElement($medida);
+        return $this->latitud;
     }
 
     /**
-     * Get medidas
+     * Set longitud
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @param string $longitud
+     *
+     * @return Puerto
      */
-    public function getMedidas()
+    public function setLongitud($longitud)
     {
-        return $this->medidas;
+        $this->longitud = $longitud;
+
+        return $this;
+    }
+
+    /**
+     * Get longitud
+     *
+     * @return string
+     */
+    public function getLongitud()
+    {
+        return $this->longitud;
     }
 }
