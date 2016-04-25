@@ -28,27 +28,33 @@ class UpdateReceiver implements UpdateReceiverInterface {
 	public function handleUpdate( Update $update ) {
 		$message = json_decode( json_encode( $update->message ), true );
 
-		$parseMode= null;
+		$puertos           = $this->em->getRepository( 'AppBundle:Puerto' )->findAll();
+		$aPuertosConocidos = array();
+		foreach ( $puertos as $puerto ) {
+			$aPuertosConocidos[ '/' . str_replace( " ", "_", $puerto->getNombre() ) ] = $puerto->getNombre();
+		}
+
+		$parseMode = null;
 		switch ( $message['text'] ) {
-			case '/posadas':
-				$arrayCriteria = array( 'nombre' => 'posadas' );
+			case array_key_exists( $message['text'], $aPuertosConocidos ):
+				$arrayCriteria = array( 'nombre' => $aPuertosConocidos[ $message['text'] ] );
 				$rio           = $this->em->getRepository( 'AppBundle:Puerto' )->findOneBy( $arrayCriteria );
 				$text          =
-				"*Nombre Río:* " . $rio->getNombreRio() . "
-				*Medida último registro:* " . $rio->getMedidaUltimoRegistro() . "
-				*Variación:* " . $rio->getMedidaVariacion() . "
-				*Alerta:* " . $rio->getMedidaAlerta() . "				
-				*Evacuación:* " . $rio->getMedidaEvacuacion() . "				
+				"*Nombre Río:* " . $rio->getNombreRio() . "\n
+				*Medida último registro:* " . $rio->getMedidaUltimoRegistro() . "\n
+				*Variación:* " . $rio->getMedidaVariacion() . "\n
+				*Alerta:* " . $rio->getMedidaAlerta() . "\n
+				*Evacuación:* " . $rio->getMedidaEvacuacion() . "\n
 				*Estado Río:* " . $rio->getMedidaNombreEstadoRio();
-				$parseMode = 'Markdown';
+				$parseMode     = 'Markdown';
 				break;
 			case "/about":
 			case "/acerca":
 			case "/acerca@{$this->config['bot_name']}":
 			case "/about@{$this->config['bot_name']}":
-				$text = "Bienvenidos al Bot del SiMOR!
-				Descarga la app desde el PlayStore: [SiMOR](https://play.google.com/store/apps/details?id=org.pim.simor)
-				Web: [FundacionPIM](http://fundacionpim.com.ar)
+				$text      = "Bienvenidos al Bot del SiMOR! \n
+				Descarga la app desde el PlayStore: [SiMOR](https://play.google.com/store/apps/details?id=org.pim.simor) \n
+				Web: [FundacionPIM](http://fundacionpim.com.ar) \n
 				";
 				$parseMode = 'Markdown';
 				break;
@@ -60,7 +66,10 @@ class UpdateReceiver implements UpdateReceiverInterface {
 				$text = "Listado de Comandos:\n";
 				$text .= "/about - Acerca de este bot\n";
 				$text .= "/ayuda /help - Muestra este Mensaje\n";
-				$text .= "/posadas - para ver el estado de posadas\n";
+				foreach ( $aPuertosConocidos as $key => $aPuertosConocido ) {
+					$text .= "$key \n";
+				}
+				$text .= "para ver los estados\n";
 				break;
 		}
 
