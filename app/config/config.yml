@@ -130,3 +130,4 @@ shaygan_telegram_bot_api:
     token: '%telegram_token%'
     webhook:
         domain: '%dominio%'
+        path_prefix: '%path_prefix%'
