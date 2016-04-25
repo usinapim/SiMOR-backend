@@ -8,3 +8,7 @@ services:
             container: '@service_container'
         tags:
             - { name: manager.rios, alias: manager.rios }
+
+    shaygan.my_update_receiver:
+        class: AppBundle\UpdateReceiver\UpdateReceiver
+        arguments: ['@shaygan.telegram_bot_api', '%shaygan_telegram_bot_api.config%', '@doctrine.orm.default_entity_manager']

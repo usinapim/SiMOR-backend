@@ -132,3 +132,4 @@ shaygan_telegram_bot_api:
     webhook:
         domain: '%dominio%'
         path_prefix: '%path_prefix%'
+        update_receiver: shaygan.my_update_receiver
