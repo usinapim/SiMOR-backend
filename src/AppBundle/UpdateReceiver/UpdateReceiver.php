@@ -10,6 +10,7 @@ namespace AppBundle\UpdateReceiver;
 
 use Shaygan\TelegramBotApiBundle\TelegramBotApi;
 use Shaygan\TelegramBotApiBundle\Type\Update;
+use Shaygan\TelegramBotApiBundle\UpdateReceiver\UpdateReceiverInterface;
 
 
 class UpdateReceiver implements UpdateReceiverInterface {
