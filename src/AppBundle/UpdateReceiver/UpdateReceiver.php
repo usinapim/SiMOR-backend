@@ -28,17 +28,19 @@ class UpdateReceiver implements UpdateReceiverInterface {
 	public function handleUpdate( Update $update ) {
 		$message = json_decode( json_encode( $update->message ), true );
 
+		$parseMode= null;
 		switch ( $message['text'] ) {
 			case '/posadas':
 				$arrayCriteria = array( 'nombre' => 'posadas' );
 				$rio           = $this->em->getRepository( 'AppBundle:Puerto' )->findOneBy( $arrayCriteria );
-				$text          = "
-				*Nombre Río:* " . $rio->getNombreRio() . "
+				$text          =
+				"*Nombre Río:* " . $rio->getNombreRio() . "
 				*Medida último registro:* " . $rio->getMedidaUltimoRegistro() . "
 				*Variación:* " . $rio->getMedidaVariacion() . "
 				*Alerta:* " . $rio->getMedidaAlerta() . "				
 				*Evacuación:* " . $rio->getMedidaEvacuacion() . "				
 				*Estado Río:* " . $rio->getMedidaNombreEstadoRio();
+				$parseMode = 'Markdown';
 				break;
 			case "/about":
 			case "/acerca":
@@ -58,7 +60,7 @@ class UpdateReceiver implements UpdateReceiverInterface {
 				break;
 		}
 
-		$this->telegramBotApi->sendMessage( $message['chat']['id'], $text );
+		$this->telegramBotApi->sendMessage( $message['chat']['id'], $text, $parseMode );
 	}
 
 }
