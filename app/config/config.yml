@@ -127,6 +127,7 @@ sensio_framework_extra:
     psr_message: { enabled: false }
 
 shaygan_telegram_bot_api:
+    bot_name: '%telegram_bot_name%'
     token: '%telegram_token%'
     webhook:
         domain: '%dominio%'
