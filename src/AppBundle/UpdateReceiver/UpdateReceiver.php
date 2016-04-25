@@ -31,7 +31,14 @@ class UpdateReceiver implements UpdateReceiverInterface {
 		switch ( $message['text'] ) {
 			case '/posadas':
 				$arrayCriteria = array( 'nombre' => 'posadas' );
-				$text          = $this->em->getRepository( 'AppBundle:Puerto' )->findOneBy( $arrayCriteria );
+				$rio           = $this->em->getRepository( 'AppBundle:Puerto' )->findOneBy( $arrayCriteria );
+				$text          = "
+				*Nombre Río:* " . $rio->getNombreRio() . "
+				*Medida último registro:* " . $rio->getMedidaUltimoRegistro() . "
+				*Variación:* " . $rio->getMedidaVariacion() . "
+				*Alerta:* " . $rio->getMedidaAlerta() . "				
+				*Evacuación:* " . $rio->getMedidaEvacuacion() . "				
+				*Estado Río:* " . $rio->getMedidaNombreEstadoRio();
 				break;
 			case "/about":
 			case "/acerca":
