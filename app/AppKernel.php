@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new ThemeBundle\ThemeBundle(),
             new UsuariosBundle\UsuariosBundle(),
             new UtilBundle\UtilBundle(),
+            new Shaygan\TelegramBotApiBundle\ShayganTelegramBotApiBundle(),
 
         );
 
