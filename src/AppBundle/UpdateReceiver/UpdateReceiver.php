@@ -31,7 +31,9 @@ class UpdateReceiver implements UpdateReceiverInterface {
 		$puertos           = $this->em->getRepository( 'AppBundle:Puerto' )->findAll();
 		$aPuertosConocidos = array();
 		foreach ( $puertos as $puerto ) {
-			$aPuertosConocidos[ '/' . str_replace( " ", "_", $puerto->getNombre() ) ] = $puerto->getNombre();
+//			$aPuertosConocidos[ '/' . str_replace( " ", "_", $puerto->getNombre() ) ] = $puerto->getNombre();
+			$aPuertosConocidos[ '/' . strtr( $puerto->getNombre(),
+				array( '(' => '_', ')' => '_', ' ' => '_' ) ) ] = $puerto->getNombre();
 		}
 
 		$parseMode = null;
@@ -39,14 +41,13 @@ class UpdateReceiver implements UpdateReceiverInterface {
 			case array_key_exists( $message['text'], $aPuertosConocidos ):
 				$arrayCriteria = array( 'nombre' => $aPuertosConocidos[ $message['text'] ] );
 				$rio           = $this->em->getRepository( 'AppBundle:Puerto' )->findOneBy( $arrayCriteria );
-				$text          =
-				"*Nombre Río:* " . $rio->getNombreRio() . "\n
-				*Medida último registro:* " . $rio->getMedidaUltimoRegistro() . "\n
-				*Variación:* " . $rio->getMedidaVariacion() . "\n
-				*Alerta:* " . $rio->getMedidaAlerta() . "\n
-				*Evacuación:* " . $rio->getMedidaEvacuacion() . "\n
-				*Estado Río:* " . $rio->getMedidaNombreEstadoRio();
-				$parseMode     = 'Markdown';
+				$text          = "*Nombre Río:* " . $rio->getNombreRio() . "\n";
+				$text .= "*Medida último registro:* " . $rio->getMedidaUltimoRegistro() . "\n";
+				$text .= "*Variación:* " . $rio->getMedidaVariacion() . "\n";
+				$text .= "*Alerta:* " . $rio->getMedidaAlerta() . "\n";
+				$text .= "*Evacuación:* " . $rio->getMedidaEvacuacion() . "\n";
+				$text .= "*Estado Río:* " . $rio->getMedidaNombreEstadoRio();
+				$parseMode = 'Markdown';
 				break;
 			case "/about":
 			case "/acerca":
