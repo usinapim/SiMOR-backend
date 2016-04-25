@@ -1,21 +1,84 @@
-## CodeIgniter 2 Framework Files
-## -----------------------------
+/app/bootstrap.php.cache
+/app/cache/*
+!app/cache/.gitkeep
+/app/config/parameters.yml
+/app/logs/*
+!app/logs/.gitkeep
+/app/phpunit.xml
+/bin/
+/composer.phar
+/vendor/
+/web/bundles/
+# -- Editores -----------------------------------------
+# vim
+.*.sw[a-z]
+*.un~
+Session.vim
+.netrwhist
 
-*/config/development
-*/logs/log-*.php
-*/logs/!index.html
-*/cache/*
-*/cache/!index.html
-*/cache/!.htaccess
+# eclipse
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.externalToolBuilders/
+*.launch
+.buildpath
 
-## CodeKit Files
-## -----------------------------
-*.codekit
+# phpstorm
+.idea/
 
-## SASS and Compass Files
-## -----------------------------
-**/.sass-cache/**
-config.rb
+# textmate
+*.tmproj
+*.tmproject
+tmtags
 
-## Mac Stuff
-## -----------------------------
+# sublimetext
+/*.sublime-project
+*.sublime-workspace
+
+# netbeans
+nbproject
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# -- Sistemas Operativos ------------------------------
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.*
+!.gitignore
+!.htaccess
+*~
+
+# Mac OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# -- Theme ------------------------------
+!/src/ThemeBundle/Resources/public/AdminLTE-2.3.0/dist/
+!/src/ThemeBundle/Resources/public/AdminLTE-2.3.0/build/

@@ -1,0 +1,30 @@
+rios:
+    path:     /
+    defaults: { _controller: "AppBundle:Rio:index" }
+
+rios_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Rio:show" }
+
+rios_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Rio:new" }
+
+rios_create:
+    path:     /create
+    defaults: { _controller: "AppBundle:Rio:create" }
+    methods:  POST
+
+rios_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Rio:edit" }
+
+rios_update:
+    path:     /{id}/update
+    defaults: { _controller: "AppBundle:Rio:update" }
+    methods:  [POST, PUT]
+
+rios_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Rio:delete" }
+    methods:  [POST, DELETE]

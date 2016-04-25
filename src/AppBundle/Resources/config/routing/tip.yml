@@ -1,0 +1,30 @@
+tips:
+    path:     /
+    defaults: { _controller: "AppBundle:Tip:index" }
+
+tips_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Tip:show" }
+
+tips_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Tip:new" }
+
+tips_create:
+    path:     /create
+    defaults: { _controller: "AppBundle:Tip:create" }
+    methods:  POST
+
+tips_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Tip:edit" }
+
+tips_update:
+    path:     /{id}/update
+    defaults: { _controller: "AppBundle:Tip:update" }
+    methods:  [POST, PUT]
+
+tips_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Tip:delete" }
+    methods:  [POST, DELETE]

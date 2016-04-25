@@ -1,0 +1,80 @@
+{% extends 'ThemeBundle:Default:layout_base.html.twig' %}
+
+    {% block title %}
+        Medida
+    {% endblock title %}
+
+    {% block content -%}
+
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Listado Medidas</h3>
+
+
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table class="data-table table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Rio</th>
+                                <th>Ultimo registro</th>
+                                <th>Variacion</th>
+                                <th>Periodo</th>
+                                <th>Fecha hora</th>
+                                <th>Alerta</th>
+                                <th>Evacuacion</th>
+                                <th>Creado</th>
+                                <th>Actualizado</th>
+                                <th>Fuente datos</th>
+                                <th>Acciones</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for entity in entities %}
+                                <tr>
+                                    <td>
+                                        <a href="{{ path('medidas_show', { 'id': entity.id }) }}">{{ entity.id }}</a>
+                                    </td>
+                                    <td>{{ entity.puerto }}</td>
+                                    <td>{{ entity.ultimoRegistro }}</td>
+                                    <td>{{ entity.variacion }}</td>
+                                    <td>{{ entity.periodo }}</td>
+                                    <td>{% if entity.fechaHora %}{{ entity.fechaHora|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    <td>{{ entity.alerta }}</td>
+                                    <td>{{ entity.evacuacion }}</td>
+                                    <td>{% if entity.creado %}{{ entity.creado|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    <td>{% if entity.actualizado %}{{ entity.actualizado|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    <td>{{ entity.fuenteDatos }}</td>
+                                    <td>
+
+                                        <a class="btn btn-default"
+                                           href="{{ path('medidas_show', { 'id': entity.id }) }}"><i
+                                                    class="fa fa-eye"></i></a>
+
+                                        <a class="btn btn-default"
+                                           href="{{ path('medidas_edit', { 'id': entity.id }) }}"><i
+                                                    class="fa fa-edit"></i></a>
+
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="box-footer">
+
+                        <a class="btn btn-primary" href="{{ path('medidas_new') }}">
+                            Nuevo
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ knp_pagination_render(entities) }}
+    {% endblock %}

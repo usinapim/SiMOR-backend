@@ -1,0 +1,30 @@
+medidas:
+    path:     /
+    defaults: { _controller: "AppBundle:Medida:index" }
+
+medidas_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Medida:show" }
+
+medidas_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Medida:new" }
+
+medidas_create:
+    path:     /create
+    defaults: { _controller: "AppBundle:Medida:create" }
+    methods:  POST
+
+medidas_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Medida:edit" }
+
+medidas_update:
+    path:     /{id}/update
+    defaults: { _controller: "AppBundle:Medida:update" }
+    methods:  [POST, PUT]
+
+medidas_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Medida:delete" }
+    methods:  [POST, DELETE]

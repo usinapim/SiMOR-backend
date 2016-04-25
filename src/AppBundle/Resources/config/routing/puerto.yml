@@ -1,0 +1,30 @@
+puertos:
+    path:     /
+    defaults: { _controller: "AppBundle:Puerto:index" }
+
+puertos_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Puerto:show" }
+
+puertos_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Puerto:new" }
+
+puertos_create:
+    path:     /create
+    defaults: { _controller: "AppBundle:Puerto:create" }
+    methods:  POST
+
+puertos_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Puerto:edit" }
+
+puertos_update:
+    path:     /{id}/update
+    defaults: { _controller: "AppBundle:Puerto:update" }
+    methods:  [POST, PUT]
+
+puertos_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Puerto:delete" }
+    methods:  [POST, DELETE]
