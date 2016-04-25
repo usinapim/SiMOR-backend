@@ -30,8 +30,6 @@ class NivelesRestController extends Controller {
 		$chatId      = $request->get( 'chat_id' );
 		$telegramApi->sendMessage( $chatId, 'buenoChau' );
 
-
-
 //		// get the telegram api as a service
 //		$api = $this->container->get('shaygan.telegram_bot_api');
 //

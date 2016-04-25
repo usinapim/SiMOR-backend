@@ -17,3 +17,6 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    dominio: http://fundacionpim.com.ar
+    telegram_token: 190848650:AAHvCsIb8zzIoia6QwjQh5K3Ggo77l2wreA
