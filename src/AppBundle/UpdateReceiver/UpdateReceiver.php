@@ -46,7 +46,11 @@ class UpdateReceiver implements UpdateReceiverInterface {
 			case "/acerca":
 			case "/acerca@{$this->config['bot_name']}":
 			case "/about@{$this->config['bot_name']}":
-				$text = "Bienvenidos al Bot del SiMOR";
+				$text = "Bienvenidos al Bot del SiMOR!
+				Descarga la app desde el PlayStore: [SiMOR](https://play.google.com/store/apps/details?id=org.pim.simor)
+				Web: [FundacionPIM](http://fundacionpim.com.ar)
+				";
+				$parseMode = 'Markdown';
 				break;
 			case "/help":
 			case "/ayuda":
