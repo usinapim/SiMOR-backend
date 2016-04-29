@@ -19,6 +19,6 @@ parameters:
     secret:            ThisTokenIsNotSoSecretChangeIt
 
     dominio: http://fundacionpim.com.ar
-    telegram_token: 190848650:AAHvCsIb8zzIoia6QwjQh5K3Ggo77l2wreA
+    telegram_token: token
     path_prefix: /simor_web_service
     telegram_bot_name: SiMORPIMBot
