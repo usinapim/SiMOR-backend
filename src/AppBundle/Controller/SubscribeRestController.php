@@ -27,54 +27,63 @@ use FOS\RestBundle\Controller\Annotations\Post;
 use FOS\RestBundle\Controller\Annotations\Get;
 
 
-class SubscribeRestController extends FOSRestController implements ClassResourceInterface {
+class SubscribeRestController extends FOSRestController implements ClassResourceInterface
+{
 
 
-	private $manager;
-	private $repo;
-	private $formFactory;
-	private $router;
+    private $manager;
+    private $repo;
+    private $formFactory;
+    private $router;
 
-	/**
-	 * Controller constructor
-	 * @var ObjectManager $manager
-	 * @var SubscriptorRepository $repo
-	 * @var FormFactoryInterface $formFactory
-	 * @var RouterInterface $router
-	 */
-	public function __construct(
-		ObjectManager $manager,
-		SubscriptorRepository $repo,
-		FormFactoryInterface $formFactory,
-		RouterInterface $router
-	) {
-		$this->manager     = $manager;
-		$this->repo        = $repo;
-		$this->formFactory = $formFactory;
-		$this->router      = $router;
-	}
+    /**
+     * Controller constructor
+     * @var ObjectManager $manager
+     * @var SubscriptorRepository $repo
+     * @var FormFactoryInterface $formFactory
+     * @var RouterInterface $router
+     */
+    public function __construct(
+        ObjectManager $manager,
+        SubscriptorRepository $repo,
+        FormFactoryInterface $formFactory,
+        RouterInterface $router
+    )
+    {
+        $this->manager = $manager;
+        $this->repo = $repo;
+        $this->formFactory = $formFactory;
+        $this->router = $router;
+    }
 
-	/**
-	 * Create an organisation
-	 * @var Request $request
-	 * @return View|FormInterface
-	 * @Post("/susbcribe")
-	 *
-	 */
-	public function postAction( Request $request ) {
+    /**
+     * Create an organisation
+     * @var Request $request
+     * @return View|FormInterface
+     * @Post("/susbcribe")
+     *
+     */
+    public function postAction(Request $request)
+    {
+        header('Access-Control-Allow-Origin: *');
+        header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+        header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 
-		$subscriptor = new Subscriptor();
-		$form        = $this->formFactory->createNamed( '', new SubscriptorType(), $subscriptor );
-		$form->handleRequest( $request );
-		if ( $form->isValid() ) {
-			$this->manager->persist( $subscriptor );
-			$this->manager->flush( $subscriptor );
 
-			return View::create( $subscriptor, 200 );
+        $subscriptor = new Subscriptor();
+        $form = $this->formFactory->createNamed('', new SubscriptorType(), $subscriptor);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            if (!$this->manager->getRepository('AppBundle:Subscriptor')->findByDeviceId($subscriptor->getDeviceId())) {
+                $this->manager->persist($subscriptor);
+                $this->manager->flush($subscriptor);
+                return View::create($subscriptor, 200);
+            }
 
 		}
 
-		return View::create( $form, 400 );
-	}
+        return View::create($form, 400);
+    }
 
 }

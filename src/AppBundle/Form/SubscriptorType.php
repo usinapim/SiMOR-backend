@@ -25,7 +25,8 @@ class SubscriptorType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Subscriptor'
+            'data_class' => 'AppBundle\Entity\Subscriptor',
+            'csrf_protection' => false,
         ));
     }
 
