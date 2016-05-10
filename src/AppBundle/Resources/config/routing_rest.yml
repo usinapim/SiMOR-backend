@@ -7,3 +7,8 @@ tips :
   type: rest
   resource:     "AppBundle:TipsRest"
   name_prefix:  api_
+
+subscriptores :
+    type: rest
+    resource: app_bundle.controller.subscriptor
+    name_prefix:  api_

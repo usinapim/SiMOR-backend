@@ -9,6 +9,17 @@ services:
         tags:
             - { name: manager.rios, alias: manager.rios }
 
+    app_bundle.controller.subscriptor:
+        class: AppBundle\Controller\SubscribeRestController
+        arguments: ['@doctrine.orm.entity_manager', '@app_bundle.repo.subscriptor', '@form.factory', '@router']
+
+    app_bundle.repo.subscriptor:
+        class: AppBundle\Repository\SubscriptorRepository
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - AppBundle\Entity\Subscriptor
+
     shaygan.my_update_receiver:
         class: AppBundle\UpdateReceiver\UpdateReceiver
         arguments: ['@shaygan.telegram_bot_api', '%shaygan_telegram_bot_api.config%', '@doctrine.orm.default_entity_manager']

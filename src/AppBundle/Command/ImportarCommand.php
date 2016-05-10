@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Command;
 
+use RMS\PushNotificationsBundle\Message\AndroidMessage;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -33,7 +34,19 @@ class ImportarCommand extends ContainerAwareCommand
 
         $datos = $this->getContainer()->get('manager.rios')->getDatosPrefectura();
         if ($datos) {
+            $em = $this->getContainer()->get('doctrine')->getManager();
+
             $output->writeln('Datos de Prefectura importados Correctamente');
+            $message = new AndroidMessage();
+            $aSubscribers = $em->getRepository('AppBundle:Subscriptor')->findAll();
+
+            foreach ($aSubscribers as $aSubscriber) {
+                $message->addGCMIdentifier($aSubscriber->getDeviceId());
+            }
+            $message->setData(array('title' => 'SiMOR'));
+            $message->setMessage('Hemos actualizados nuestros datos. Entra a mirarlos');
+            $message->setGCM(true);
+            $this->getContainer()->get('rms_push_notifications')->send($message);
 
         } else {
             $output->writeln('Ocurrió un error al procesar Datos de Prefectura');
