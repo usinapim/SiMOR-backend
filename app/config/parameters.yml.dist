@@ -22,3 +22,4 @@ parameters:
     telegram_token: token
     path_prefix: /simor_web_service
     telegram_bot_name: SiMORPIMBot
+    api_access_key_gcm: api_key

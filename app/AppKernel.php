@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new UsuariosBundle\UsuariosBundle(),
             new UtilBundle\UtilBundle(),
             new Shaygan\TelegramBotApiBundle\ShayganTelegramBotApiBundle(),
+            new RMS\PushNotificationsBundle\RMSPushNotificationsBundle(),
 
         );
 
