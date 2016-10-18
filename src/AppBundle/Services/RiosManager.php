@@ -31,7 +31,7 @@ class RiosManager {
 	public function getDatosPrefectura() {
 		$em = $this->em;
 
-		$datos = $this->getDatosTablaByURL( "http://200.41.238.203:8889/resumen_agua.aspx", 1 );
+		$datos = $this->getDatosTablaByURL( "http://www.prefecturanaval.gov.ar/alturas/index.php", 0 );
 		//$datos = array ('id'=>2);
 		if ( $datos ) {
 			unset( $datos [0] );
@@ -65,21 +65,21 @@ class RiosManager {
 						$em->persist( $puerto );
 						$em->flush();
 					}
-					$value['ult. registro'] = str_replace( ',', '.', $value['ult. registro'] );
-					$value['variacion']     = str_replace( ',', '.', $value['variacion'] );
-					$value['alerta']        = str_replace( ',', '.', $value['alerta'] );
-					$value['evacuacion']    = str_replace( ',', '.', $value['evacuacion'] );
+					$value['ultregistro'] = str_replace( ',', '.', $value['ultregistro'] );
+					$value['variacion']   = str_replace( ',', '.', $value['variacion'] );
+					$value['alerta']      = str_replace( ',', '.', $value['alerta'] );
+					$value['evacuacion']  = str_replace( ',', '.', $value['evacuacion'] );
 
 					$medida = new Medida();
 					$medida->setPuerto( $puerto );
-					$medida->setUltimoRegistro( $value['ult. registro'] );
+					$medida->setUltimoRegistro( $value['ultregistro'] );
 					$medida->setVariacion( $value['variacion'] );
-					$medida->setPeriodo( $value['periodo (hs.)'] );
+					$medida->setPeriodo( $value['periodohs'] );
 					$meses = DateTools::getAMesCortoEn();
 					foreach ( $meses as $key => $mes ) {
 						$fecha = str_replace( $key,
 							$mes,
-							$value['fecha - hora'],
+							$value['fechahora'],
 							$count );
 						if ( $count ) {
 							break;
@@ -115,42 +115,52 @@ class RiosManager {
 		libxml_use_internal_errors( true );
 		$dom = new DOMDocument();
 //load the html
-		$html = $dom->loadHTMLFile( $url );
+		$dom->loadHTMLFile( $url );
 		//discard white space
 		$dom->preserveWhiteSpace = false;
 		//the table by its tag name
-		$tables = $dom->getElementsByTagName( 'table' );
+//		$tables = $dom->getElementsByTagName( 'table' );
 		//get all rows from the table
-		$rows = $tables->item( $posTabla )->getElementsByTagName( 'tr' );
+
 		// get each column by tag name
-		$cols        = $rows->item( 0 )->getElementsByTagName( 'th' );
+		$thead       = $dom->getElementsByTagName( 'thead' );
+		$cols        = $thead->item( 0 )->getElementsByTagName( 'th' );
 		$row_headers = null;
 		foreach ( $cols as $node ) {
-			//print $node->nodeValue."\n";
+//			print $node->nodeValue . "\n";
+
 			$row_headers[] = $node->nodeValue;
+
 		}
 		$table = array();
 		//get all rows from the table
-		$rows = $tables->item( $posTabla )->getElementsByTagName( 'tr' );
+		$tbody = $thead = $dom->getElementsByTagName( 'tbody' );
+		$rows  = $tbody->item( $posTabla )->getElementsByTagName( 'tr' );
 		foreach ( $rows as $row ) {
 			// get each column by tag name
-			$cols = $row->getElementsByTagName( 'td' );
-			$row  = array();
-			$i    = 0;
-			foreach ( $cols as $node ) {
-				# code...
-				//print $node->nodeValue."\n";
-				if ( $row_headers == null ) {
-					$row[] = $node->nodeValue;
-				} else {
-					if ( array_key_exists( $i, $row_headers ) && $row_headers[ $i ] !== ' ' ) {
-						$indice = $this->normaliza( $row_headers[ $i ] );
+			$cols   = $row->getElementsByTagName( 'th' );
+			$colsTD = $row->getElementsByTagName( 'td' );
 
-						$row[ $indice ] = $node->nodeValue;
+			$row = array();
+			$i   = 0;
+			foreach ( array( $cols, $colsTD ) as $colis ) {
+
+
+				foreach ( $colis as $nodeCols ) {
+					# code...
+					//print $nodeCols->nodeValue."\n";
+					if ( $row_headers == null ) {
+						$row[] = $nodeCols->nodeValue;
+					} else {
+						if ( array_key_exists( $i, $row_headers ) && $row_headers[ $i ] !== ' ' ) {
+							$indice = $this->normaliza( $row_headers[ $i ] );
+
+							$row[ $indice ] = $nodeCols->nodeValue;
+						}
+
 					}
-
+					$i ++;
 				}
-				$i ++;
 			}
 			$table[] = $row;
 		}
@@ -167,6 +177,8 @@ class RiosManager {
 bsaaaaaaaceeeeiiiidnoooooouuuyybyRr';
 		$cadena      = utf8_decode( $cadena );
 		$cadena      = strtr( $cadena, utf8_decode( $originales ), $modificadas );
+		$cadena      = trim( $cadena );
+		$cadena      = preg_replace( '([^A-Za-z0-9])', '', $cadena );
 		$cadena      = strtolower( $cadena );
 
 		return utf8_encode( $cadena );
