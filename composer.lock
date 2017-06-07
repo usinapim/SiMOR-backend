@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "07c12c84ad0f586e3ad9c616d1191ad2",
-    "content-hash": "b98ad2755bd4041b785524a41d8d272c",
+    "content-hash": "8bdd812afe9b449b35571c8c58b0f95e",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -45,7 +44,53 @@
                 "slug",
                 "transliterator"
             ],
-            "time": "2015-09-28 16:26:35"
+            "time": "2015-09-28T16:26:35+00:00"
+        },
+        {
+            "name": "dizda/onesignal-api-bundle",
+            "version": "0.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dizda/OnesignalApiBundle.git",
+                "reference": "8cb64fcf490d2499e0f116639720232270ba56d0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dizda/OnesignalApiBundle/zipball/8cb64fcf490d2499e0f116639720232270ba56d0",
+                "reference": "8cb64fcf490d2499e0f116639720232270ba56d0",
+                "shasum": ""
+            },
+            "require": {
+                "norkunas/onesignal-php-api": "v0.1.0",
+                "php": ">=5.4.0",
+                "symfony/framework-bundle": "~2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dizda\\OnesignalApiBundle\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Dizdarevic",
+                    "email": "dizzda@gmail.com",
+                    "homepage": "https://github.com/dizda"
+                }
+            ],
+            "description": "OneSignal API Bundle for Symfony.",
+            "homepage": "https://github.com/dizda",
+            "keywords": [
+                "api",
+                "norkunas",
+                "onesignal",
+                "symfony"
+            ],
+            "time": "2015-07-05T12:01:17+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -113,7 +158,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2015-08-31 12:32:49"
+            "time": "2015-08-31T12:32:49+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -183,7 +228,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2015-11-02 18:35:48"
+            "time": "2015-11-02T18:35:48+00:00"
         },
         {
             "name": "doctrine/collections",
@@ -249,7 +294,7 @@
                 "collections",
                 "iterator"
             ],
-            "time": "2015-04-14 22:21:58"
+            "time": "2015-04-14T22:21:58+00:00"
         },
         {
             "name": "doctrine/common",
@@ -322,7 +367,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2015-08-31 13:00:22"
+            "time": "2015-08-31T13:00:22+00:00"
         },
         {
             "name": "doctrine/dbal",
@@ -393,7 +438,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2015-09-16 16:29:33"
+            "time": "2015-09-16T16:29:33+00:00"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -471,7 +516,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2015-11-04 21:33:02"
+            "time": "2015-11-04T21:33:02+00:00"
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
@@ -558,7 +603,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2015-11-27 04:59:07"
+            "time": "2015-11-27T04:59:07+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -625,7 +670,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2015-11-06 14:35:42"
+            "time": "2015-11-06T14:35:42+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -679,7 +724,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-06-14 21:17:01"
+            "time": "2015-06-14T21:17:01+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -733,7 +778,7 @@
                 "lexer",
                 "parser"
             ],
-            "time": "2014-09-09 13:34:57"
+            "time": "2014-09-09T13:34:57+00:00"
         },
         {
             "name": "doctrine/orm",
@@ -810,7 +855,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2015-11-23 12:44:25"
+            "time": "2015-11-23T12:44:25+00:00"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -896,7 +941,7 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2015-12-05 14:55:07"
+            "time": "2015-12-05T14:55:07+00:00"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -1044,7 +1089,160 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2015-11-30 18:58:48"
+            "time": "2015-11-30T18:58:48+00:00"
+        },
+        {
+            "name": "guzzlehttp/guzzle",
+            "version": "5.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "70f1fa53b71c4647bf2762c09068a95f77e12fb8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/70f1fa53b71c4647bf2762c09068a95f77e12fb8",
+                "reference": "70f1fa53b71c4647bf2762c09068a95f77e12fb8",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/ringphp": "^1.1",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "^4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2016-07-15T19:28:39+00:00"
+        },
+        {
+            "name": "guzzlehttp/ringphp",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/RingPHP.git",
+                "reference": "dbbb91d7f6c191e5e405e900e3102ac7f261bc0b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/RingPHP/zipball/dbbb91d7f6c191e5e405e900e3102ac7f261bc0b",
+                "reference": "dbbb91d7f6c191e5e405e900e3102ac7f261bc0b",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/streams": "~3.0",
+                "php": ">=5.4.0",
+                "react/promise": "~2.0"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "ext-curl": "Guzzle will use specific adapters if cURL is present"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Ring\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Provides a simple API and specification that abstracts away the details of HTTP into a single PHP function.",
+            "time": "2015-05-20T03:37:09+00:00"
+        },
+        {
+            "name": "guzzlehttp/streams",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/streams.git",
+                "reference": "47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/streams/zipball/47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5",
+                "reference": "47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Stream\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Provides a simple abstraction over streams of data",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "Guzzle",
+                "stream"
+            ],
+            "time": "2014-10-12T19:18:40+00:00"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1095,7 +1293,7 @@
             "keywords": [
                 "parameters management"
             ],
-            "time": "2015-11-10 17:04:01"
+            "time": "2015-11-10T17:04:01+00:00"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1137,7 +1335,7 @@
                 "hashing",
                 "password"
             ],
-            "time": "2014-11-20 16:49:30"
+            "time": "2014-11-20T16:49:30+00:00"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -1187,7 +1385,7 @@
                 "highlight",
                 "sql"
             ],
-            "time": "2014-01-12 16:20:24"
+            "time": "2014-01-12T16:20:24+00:00"
         },
         {
             "name": "jms/metadata",
@@ -1239,7 +1437,7 @@
                 "xml",
                 "yaml"
             ],
-            "time": "2014-07-12 07:13:19"
+            "time": "2014-07-12T07:13:19+00:00"
         },
         {
             "name": "jms/parser-lib",
@@ -1274,7 +1472,7 @@
                 "Apache2"
             ],
             "description": "A library for easily creating recursive-descent parsers.",
-            "time": "2012-11-18 18:08:43"
+            "time": "2012-11-18T18:08:43+00:00"
         },
         {
             "name": "jms/serializer",
@@ -1347,7 +1545,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2015-10-27 09:24:41"
+            "time": "2015-10-27T09:24:41+00:00"
         },
         {
             "name": "jms/serializer-bundle",
@@ -1417,7 +1615,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2015-11-10 12:26:42"
+            "time": "2015-11-10T12:26:42+00:00"
         },
         {
             "name": "knplabs/knp-components",
@@ -1485,7 +1683,7 @@
                 "pager",
                 "paginator"
             ],
-            "time": "2015-09-01 10:54:53"
+            "time": "2015-09-01T10:54:53+00:00"
         },
         {
             "name": "knplabs/knp-paginator-bundle",
@@ -1546,55 +1744,7 @@
                 "pagination",
                 "paginator"
             ],
-            "time": "2015-11-23 17:51:40"
-        },
-        {
-            "name": "kriswallsmith/buzz",
-            "version": "v0.15",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kriswallsmith/Buzz.git",
-                "reference": "d4041666c3ffb379af02a92dabe81c904b35fab8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/d4041666c3ffb379af02a92dabe81c904b35fab8",
-                "reference": "d4041666c3ffb379af02a92dabe81c904b35fab8",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*"
-            },
-            "suggest": {
-                "ext-curl": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Buzz": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kris Wallsmith",
-                    "email": "kris.wallsmith@gmail.com",
-                    "homepage": "http://kriswallsmith.net/"
-                }
-            ],
-            "description": "Lightweight HTTP client",
-            "homepage": "https://github.com/kriswallsmith/Buzz",
-            "keywords": [
-                "curl",
-                "http client"
-            ],
-            "time": "2015-06-25 17:26:56"
+            "time": "2015-11-23T17:51:40+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1671,7 +1821,52 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-10-14 12:51:02"
+            "time": "2015-10-14T12:51:02+00:00"
+        },
+        {
+            "name": "norkunas/onesignal-php-api",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/norkunas/onesignal-php-api.git",
+                "reference": "de437e121c3ab44e94ff88c20394ddfb40196719"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/norkunas/onesignal-php-api/zipball/de437e121c3ab44e94ff88c20394ddfb40196719",
+                "reference": "de437e121c3ab44e94ff88c20394ddfb40196719",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~5.2",
+                "php": ">=5.4.0",
+                "symfony/options-resolver": "~2.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "OneSignal\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tomas",
+                    "email": "norkunas.tom@gmail.com"
+                }
+            ],
+            "description": "OneSignal API for PHP",
+            "keywords": [
+                "api",
+                "onesignal"
+            ],
+            "time": "2015-05-24T17:43:53+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -1719,7 +1914,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2015-11-10 00:45:41"
+            "time": "2015-11-10T00:45:41+00:00"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -1769,7 +1964,7 @@
                 "sequence",
                 "set"
             ],
-            "time": "2014-03-11 13:46:42"
+            "time": "2014-03-11T13:46:42+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -1819,7 +2014,7 @@
                 "php",
                 "type"
             ],
-            "time": "2015-07-25 16:39:46"
+            "time": "2015-07-25T16:39:46+00:00"
         },
         {
             "name": "psr/log",
@@ -1857,44 +2052,36 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2012-12-21 11:40:51"
+            "time": "2012-12-21T11:40:51+00:00"
         },
         {
-            "name": "richsage/rms-push-notifications-bundle",
-            "version": "dev-master",
-            "target-dir": "RMS/PushNotificationsBundle",
+            "name": "react/promise",
+            "version": "v2.5.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/richsage/RMSPushNotificationsBundle.git",
-                "reference": "324b29431ad58a006f53891cb103fad65c23d948"
+                "url": "https://github.com/reactphp/promise.git",
+                "reference": "62785ae604c8d69725d693eb370e1d67e94c4053"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/richsage/RMSPushNotificationsBundle/zipball/324b29431ad58a006f53891cb103fad65c23d948",
-                "reference": "324b29431ad58a006f53891cb103fad65c23d948",
+                "url": "https://api.github.com/repos/reactphp/promise/zipball/62785ae604c8d69725d693eb370e1d67e94c4053",
+                "reference": "62785ae604c8d69725d693eb370e1d67e94c4053",
                 "shasum": ""
             },
             "require": {
-                "kriswallsmith/buzz": "*",
-                "php": ">=5.3.0",
-                "psr/log": "^1.0"
+                "php": ">=5.4.0"
             },
             "require-dev": {
-                "symfony/symfony": "2.*"
+                "phpunit/phpunit": "~4.8"
             },
-            "suggest": {
-                "symfony/symfony": "To use as a bundle"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.2.x-dev"
-                }
-            },
+            "type": "library",
             "autoload": {
-                "psr-0": {
-                    "RMS\\PushNotificationsBundle": ""
-                }
+                "psr-4": {
+                    "React\\Promise\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1902,26 +2089,16 @@
             ],
             "authors": [
                 {
-                    "name": "Rich Sage",
-                    "email": "rich.sage@gmail.com",
-                    "homepage": "http://www.richsage.co.uk/"
+                    "name": "Jan Sorgalla",
+                    "email": "jsorgalla@gmail.com"
                 }
             ],
-            "description": "Push notifications/messages for mobile devices",
-            "homepage": "https://github.com/richsage/RMSPushNotificationsBundle",
+            "description": "A lightweight implementation of CommonJS Promises/A for PHP",
             "keywords": [
-                "apns",
-                "blackberry",
-                "bundle",
-                "c2dm",
-                "gcm",
-                "ios",
-                "mpns",
-                "notification",
-                "push",
-                "windowsphone"
+                "promise",
+                "promises"
             ],
-            "time": "2016-04-01 10:10:29"
+            "time": "2017-03-25T12:08:31+00:00"
         },
         {
             "name": "sensio/distribution-bundle",
@@ -1973,7 +2150,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2015-11-24 20:13:56"
+            "time": "2015-11-24T20:13:56+00:00"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -2028,7 +2205,7 @@
                 "annotations",
                 "controllers"
             ],
-            "time": "2015-10-28 15:47:04"
+            "time": "2015-10-28T15:47:04+00:00"
         },
         {
             "name": "sensiolabs/security-checker",
@@ -2072,7 +2249,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2015-11-07 08:07:40"
+            "time": "2015-11-07T08:07:40+00:00"
         },
         {
             "name": "shaygan/telegram-bot-api-bundle",
@@ -2182,7 +2359,7 @@
                 "translatable",
                 "tree"
             ],
-            "time": "2015-08-12 16:23:48"
+            "time": "2015-08-12T16:23:48+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2235,7 +2412,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2015-06-06 14:19:39"
+            "time": "2015-06-06T14:19:39+00:00"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -2294,7 +2471,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2015-11-17 10:02:29"
+            "time": "2015-11-17T10:02:29+00:00"
         },
         {
             "name": "symfony/polyfill-intl-icu",
@@ -2349,7 +2526,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2015-11-04 20:28:58"
+            "time": "2015-11-04T20:28:58+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2405,7 +2582,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2015-11-04 20:28:58"
+            "time": "2015-11-04T20:28:58+00:00"
         },
         {
             "name": "symfony/polyfill-php54",
@@ -2463,7 +2640,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2015-11-04 20:28:58"
+            "time": "2015-11-04T20:28:58+00:00"
         },
         {
             "name": "symfony/polyfill-php55",
@@ -2519,7 +2696,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2015-11-04 20:28:58"
+            "time": "2015-11-04T20:28:58+00:00"
         },
         {
             "name": "symfony/polyfill-php56",
@@ -2575,7 +2752,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2015-11-04 20:28:58"
+            "time": "2015-11-04T20:28:58+00:00"
         },
         {
             "name": "symfony/polyfill-php70",
@@ -2634,7 +2811,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2015-11-04 20:28:58"
+            "time": "2015-11-04T20:28:58+00:00"
         },
         {
             "name": "symfony/polyfill-util",
@@ -2686,7 +2863,7 @@
                 "polyfill",
                 "shim"
             ],
-            "time": "2015-11-04 20:28:58"
+            "time": "2015-11-04T20:28:58+00:00"
         },
         {
             "name": "symfony/security-acl",
@@ -2746,7 +2923,7 @@
             ],
             "description": "Symfony Security Component - ACL (Access Control List)",
             "homepage": "https://symfony.com",
-            "time": "2015-11-18 13:41:01"
+            "time": "2015-11-18T13:41:01+00:00"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -2803,7 +2980,7 @@
             ],
             "description": "Symfony SwiftmailerBundle",
             "homepage": "http://symfony.com",
-            "time": "2014-12-01 17:44:50"
+            "time": "2014-12-01T17:44:50+00:00"
         },
         {
             "name": "symfony/symfony",
@@ -2936,7 +3113,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-11-30 17:26:10"
+            "time": "2015-11-30T17:26:10+00:00"
         },
         {
             "name": "telegram-bot/api",
@@ -2991,7 +3168,7 @@
                 "php",
                 "telegram"
             ],
-            "time": "2015-12-18 09:12:31"
+            "time": "2015-12-18T09:12:31+00:00"
         },
         {
             "name": "twig/twig",
@@ -3052,7 +3229,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2015-11-05 12:49:06"
+            "time": "2015-11-05T12:49:06+00:00"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
@@ -3092,7 +3269,7 @@
                 }
             ],
             "description": "JSONP callback validator.",
-            "time": "2014-01-20 22:35:06"
+            "time": "2014-01-20T22:35:06+00:00"
         },
         {
             "name": "willdurand/negotiation",
@@ -3141,10 +3318,58 @@
                 "header",
                 "negotiation"
             ],
-            "time": "2015-10-01 07:42:40"
+            "time": "2015-10-01T07:42:40+00:00"
         }
     ],
     "packages-dev": [
+        {
+            "name": "kriswallsmith/buzz",
+            "version": "v0.15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kriswallsmith/Buzz.git",
+                "reference": "d4041666c3ffb379af02a92dabe81c904b35fab8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/d4041666c3ffb379af02a92dabe81c904b35fab8",
+                "reference": "d4041666c3ffb379af02a92dabe81c904b35fab8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Buzz": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "http://kriswallsmith.net/"
+                }
+            ],
+            "description": "Lightweight HTTP client",
+            "homepage": "https://github.com/kriswallsmith/Buzz",
+            "keywords": [
+                "curl",
+                "http client"
+            ],
+            "time": "2015-06-25T17:26:56+00:00"
+        },
         {
             "name": "sensio/generator-bundle",
             "version": "v3.0.0",
@@ -3195,7 +3420,7 @@
                 }
             ],
             "description": "This bundle generates code for you",
-            "time": "2015-11-10 13:25:32"
+            "time": "2015-11-10T13:25:32+00:00"
         },
         {
             "name": "symfony/phpunit-bridge",
@@ -3250,15 +3475,14 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
-            "time": "2015-11-06 10:15:01"
+            "time": "2015-11-06T10:15:01+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "friendsofsymfony/user-bundle": 20,
-        "shaygan/telegram-bot-api-bundle": 20,
-        "richsage/rms-push-notifications-bundle": 20
+        "shaygan/telegram-bot-api-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

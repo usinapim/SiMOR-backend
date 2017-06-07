@@ -23,11 +23,12 @@ class MedidaController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AppBundle:Medida')->findAll();
+//        $entities = $em->getRepository('AppBundle:Medida')->findAll();
+        $entities = $em->getRepository('AppBundle:Medida')->getQbOrdenada();
 
         $paginator = $this->get('knp_paginator');
         $entities = $paginator->paginate(
-        $entities, $request->query->get('page', 1)/* page number */, 10/* limit per page */
+	        $entities, $request->query->get('page', 1)/* page number */, 10/* limit per page */
         );
 
         return $this->render('AppBundle:Medida:index.html.twig', array(
