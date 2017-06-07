@@ -26,14 +26,14 @@
         "stof/doctrine-extensions-bundle": "^1.2",
         "knplabs/knp-paginator-bundle": "^2.5",
         "shaygan/telegram-bot-api-bundle": "@dev",
-        "richsage/rms-push-notifications-bundle": "dev-master"
+        "dizda/onesignal-api-bundle": "^0.1.5"
     },
     "require-dev": {
         "sensio/generator-bundle": "v3.0.0",
         "symfony/phpunit-bridge": "~2.7"
     },
     "scripts": {
-        "post-install-cmd": [
+        "symfony-scripts": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
@@ -41,13 +41,11 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ],
+        "post-install-cmd": [
+            "@symfony-scripts"
+        ],
         "post-update-cmd": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+            "@symfony-scripts"
         ]
     },
     "config": {

@@ -101,6 +101,8 @@ knp_paginator:
         sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
 
 fos_rest:
+    serializer:
+        serialize_null: true
     param_fetcher_listener: true
     body_listener: true
     format_listener: true
@@ -134,32 +136,6 @@ shaygan_telegram_bot_api:
         path_prefix: '%path_prefix%'
         update_receiver: shaygan.my_update_receiver
 
-#Push notifications
-rms_push_notifications:
-    android:
-        timeout: 5 # Seconds to wait for connection timeout, default is 5
-#      c2dm:
-#          username: <string_android_c2dm_username>
-#          password: <string_android_c2dm_password>
-#          source: <string_android_c2dm_source>
-        gcm:
-            api_key: '%api_access_key_gcm%' # This is titled "Server Key" when creating it
-            use_multi_curl: true # default is true
-            dry_run: false
-#  ios:
-#      timeout: 60 # Seconds to wait for connection timeout, default is 60
-#      sandbox: <bool_use_apns_sandbox>
-#      pem: <path_apns_certificate> # can be absolute or relative path (from app directory)
-#      passphrase: <string_apns_certificate_passphrase>
-#  mac:
-#      timeout: 60 # Seconds to wait for connection timeout, default is 60
-#      sandbox: <bool_use_apns_sandbox>
-#      pem: <path_apns_certificate>
-#      passphrase: <string_apns_certificate_passphrase>
-#  blackberry:
-#      timeout: 5 # Seconds to wait for connection timeout, default is 5
-#      evaluation: <bool_bb_evaluation_mode>
-#      app_id: <string_bb_app_id>
-#      password: <string_bb_password>
-#  windowsphone:
-#      timeout: 5 # Seconds to wait for connection timeout, default is 5
+dizda_onesignal_api:
+    app_id:       %onesignal_app_id%
+    app_auth_key: %onesignal_app_auth_key%

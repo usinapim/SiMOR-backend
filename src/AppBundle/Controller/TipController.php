@@ -56,17 +56,24 @@ class TipController extends Controller {
 				'Tip creado correctamente.'
 			);
 
-			
-			$message      = new AndroidMessage();
-			$aSubscribers = $em->getRepository( 'AppBundle:Subscriptor' )->findAll();
 
-			foreach ( $aSubscribers as $aSubscriber ) {
-				$message->addGCMIdentifier( $aSubscriber->getDeviceId() );
-			}
-			$message->setData(array('title' => 'SiMOR'));
-			$message->setMessage( $entity->getDescripcion() );
-			$message->setGCM( true );
-			$this->container->get( 'rms_push_notifications' )->send( $message );
+			$client = $this->get( 'dizda_onesignal_api.service.client' );
+
+			$client->notifications->add( [
+				'headings'          => [
+					'en' => 'SiMOR',
+					'es' => 'SiMOR',
+					'pt' => 'SiMOR',
+				],
+				'contents'          => [
+					'en' => $entity->getDescripcion(),
+					'es' => $entity->getDescripcion(),
+					'pt' => $entity->getDescripcion(),
+				],
+				'included_segments' => [ 'All' ],
+
+
+			] );
 
 			return $this->redirect( $this->generateUrl( 'tips_show', array( 'id' => $entity->getId() ) ) );
 		}
