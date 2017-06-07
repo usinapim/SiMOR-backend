@@ -23,3 +23,5 @@ parameters:
     path_prefix: /simor_web_service
     telegram_bot_name: SiMORPIMBot
     api_access_key_gcm: api_key
+    onesignal_app_id: 12312312
+    onesignal_app_auth_key: 12312312

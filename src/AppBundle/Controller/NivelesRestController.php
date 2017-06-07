@@ -2,10 +2,10 @@
 
 namespace AppBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\Request;
 
-class NivelesRestController extends Controller {
+class NivelesRestController extends FOSRestController {
 	public function getNivelesAction() {
 		$em      = $this->getDoctrine()->getManager();
 		$puertos = $em->getRepository( 'AppBundle:Puerto' )->findAll();
@@ -14,7 +14,10 @@ class NivelesRestController extends Controller {
 		header( "Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method" );
 		header( "Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE" );
 
-		return array( 'puertos' => $puertos );
+		$vista = $this->view( $puertos,
+			200 );
+
+		return $this->handleView( $vista );
 	}
 
 	public function getNivelesPuertoAction( Request $request, $puerto ) {
@@ -27,7 +30,10 @@ class NivelesRestController extends Controller {
 		header( "Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method" );
 		header( "Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE" );
 
-		return $puertos;
+		$vista = $this->view( $puertos,
+			200 );
+
+		return $this->handleView( $vista );
 	}
 
 
