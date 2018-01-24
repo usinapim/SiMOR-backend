@@ -61,9 +61,9 @@ class TipController extends Controller {
 
 			$client->notifications->add( [
 				'headings'          => [
-					'en' => 'SiMOR',
-					'es' => 'SiMOR',
-					'pt' => 'SiMOR',
+					'en' => 'SiMORA',
+					'es' => 'SiMORA',
+					'pt' => 'SiMORA',
 				],
 				'contents'          => [
 					'en' => $entity->getDescripcion(),
